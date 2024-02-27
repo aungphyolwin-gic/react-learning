@@ -1,6 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NavBar from './NavBar.js';
 import Home from './Home.js';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Create from './Create.js';
+import BlogDetail from './BlogDetail.js';
+import NotFound from './NotFound.js';
 
 function App() {
 
@@ -10,7 +14,8 @@ function App() {
   const link = "htpps://www.google.com"
 
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
           
           {/* <Nav />
           <Routes>
@@ -28,10 +33,24 @@ function App() {
             <p>{"HeLlO StRiNg"}</p>
             <p>{ [1,2,3,4,5] }</p>
             <p>{ Math.random() }</p> */}
-            <Home/>
+            <Switch>
+              <Route exact path='/'>
+                <Home/>
+              </Route>
+              <Route path='/create'>
+                <Create />
+              </Route>
+              <Route path='/blogs/:id'>
+                <BlogDetail />
+              </Route>
+              <Route path='*'>
+                <NotFound />
+              </Route>
+            </Switch>
           </div>
 
     </div>
+    </Router>
   );
 }
 
