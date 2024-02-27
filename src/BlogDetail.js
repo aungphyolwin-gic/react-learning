@@ -4,13 +4,13 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const BlogDetail = () => {
     const { id } = useParams();
-    const { data:blog, isPending, error } = useFetch("http://localhost:4000/blogs/"+id);
+    const { data:blog, isPending, error } = useFetch("https://json-server-host.vercel.app//blogs/"+id);
     const history = useHistory();
     // console.log(blog)
 
     const handleClick = ()=>{
-        console.log(blog,"http://localhost:4000/blogs/"+blog.id)
-        fetch("http://localhost:4000/blogs/"+blog.id,{
+        console.log(blog,"https://json-server-host.vercel.app//blogs/"+blog.id)
+        fetch("https://json-server-host.vercel.app//blogs/"+blog.id,{
             method:"DELETE"
         }).then(()=>{
             history.push('/')

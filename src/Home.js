@@ -4,8 +4,8 @@ import useFetch from "./useFetch";
 
 const Home = () => {
     
-    const {data: blogs, isPending, error} = useFetch('http://localhost:4000/blogs');
-    
+    const {data: blogs, isPending, error} = useFetch('https://json-server-host.vercel.app/blogs');
+
     // const handleClickAgain = (name,e)=>{
     //     console.log("Hello : " + name)
     //     console.log(e)
